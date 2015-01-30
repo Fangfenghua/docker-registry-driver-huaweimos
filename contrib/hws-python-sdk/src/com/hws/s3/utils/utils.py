@@ -13,6 +13,12 @@ import urllib
 
 import request_format
 
+import sys
+
+reload(sys)
+
+sys.setdefaultencoding('UTF-8')
+
 class Utils:
     
     METADATA_PREFIX = "x-amz-meta-"
