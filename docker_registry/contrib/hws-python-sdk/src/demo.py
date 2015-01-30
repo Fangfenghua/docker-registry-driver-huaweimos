@@ -7,7 +7,6 @@ Created on 2012-9-24
 
 import os
 
-
 from com.hws.s3.client.huawei_s3 import HuaweiS3
 from com.hws.s3.models.owner import Owner
 from com.hws.s3.models.s3object import S3Object
