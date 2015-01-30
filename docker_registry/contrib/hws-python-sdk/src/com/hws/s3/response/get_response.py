@@ -6,7 +6,7 @@ Created on 2012-10-11
 '''
 import os,sys
 
-from src.com.hws.s3.utils.utils import Utils
+from com.hws.s3.utils.utils import Utils
 
 class GetResponse(object):
     

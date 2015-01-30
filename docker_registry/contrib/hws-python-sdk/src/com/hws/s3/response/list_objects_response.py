@@ -7,10 +7,10 @@ Created on 2012-10-10
 
 import xml.etree.ElementTree as ET
 
-from src.com.hws.s3.utils.utils import Utils
-from src.com.hws.s3.models.owner import Owner
-from src.com.hws.s3.models.object_entry import ObjectEntry
-from src.com.hws.s3.models.common_prefix import CommonPrefix
+from com.hws.s3.utils.utils import Utils
+from com.hws.s3.models.owner import Owner
+from com.hws.s3.models.object_entry import ObjectEntry
+from com.hws.s3.models.common_prefix import CommonPrefix
 
 class ListObjectsResponse(object):
     

@@ -7,9 +7,9 @@ Created on 2012-10-15
 
 import xml.etree.ElementTree as ET
 
-from src.com.hws.s3.models.owner import Owner
-from src.com.hws.s3.models.grant import Grant
-from src.com.hws.s3.models.grantee import Grantee
+from com.hws.s3.models.owner import Owner
+from com.hws.s3.models.grant import Grant
+from com.hws.s3.models.grantee import Grantee
 
 class ACLResponse(object):
     

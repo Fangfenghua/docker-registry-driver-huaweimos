@@ -9,15 +9,15 @@ import datetime
 import httplib
 import os
 
-from src.com.hws.s3.utils.utils import Utils
-from src.com.hws.s3.utils.request_format import RequestFormat
-from src.com.hws.s3.utils.request_format import PathFormat
-from src.com.hws.s3.utils.query_url_generator import QueryURLGenerator
-from src.com.hws.s3.response.list_buckets_response import ListBucketsResponse
-from src.com.hws.s3.response.list_objects_response import ListObjectsResponse
-from src.com.hws.s3.response.get_response import GetResponse
-from src.com.hws.s3.response.acl_response import ACLResponse
-from src.com.hws.s3.models.s3object import S3Object
+from com.hws.s3.utils.utils import Utils
+from com.hws.s3.utils.request_format import RequestFormat
+from com.hws.s3.utils.request_format import PathFormat
+from com.hws.s3.utils.query_url_generator import QueryURLGenerator
+from com.hws.s3.response.list_buckets_response import ListBucketsResponse
+from com.hws.s3.response.list_objects_response import ListObjectsResponse
+from com.hws.s3.response.get_response import GetResponse
+from com.hws.s3.response.acl_response import ACLResponse
+from com.hws.s3.models.s3object import S3Object
 
 
 class HuaweiS3(object):

@@ -19,7 +19,8 @@ reload(sys)
 
 sys.setdefaultencoding('UTF-8')
 
-class Utils:
+
+class Utils(object):
     
     METADATA_PREFIX = "x-amz-meta-"
     AMAZON_HEADER_PREFIX = "x-amz-"
@@ -264,5 +265,3 @@ class Utils:
     def unencode(encode_str):
         return urllib.unquote(encode_str)  
 
-  
-    

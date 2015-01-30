@@ -7,9 +7,9 @@ Created on 2012-10-12
 
 import time
 
-from src.com.hws.s3.utils.utils import Utils
-from src.com.hws.s3.utils.request_format import RequestFormat
-from src.com.hws.s3.utils.request_format import PathFormat
+from com.hws.s3.utils.utils import Utils
+from com.hws.s3.utils.request_format import RequestFormat
+from com.hws.s3.utils.request_format import PathFormat
 
 class QueryURLGenerator:
     

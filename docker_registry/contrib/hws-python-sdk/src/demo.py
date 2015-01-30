@@ -7,14 +7,15 @@ Created on 2012-9-24
 
 import os
 
-from src.com.hws.s3.client.huawei_s3 import HuaweiS3
-from src.com.hws.s3.models.owner import Owner
-from src.com.hws.s3.models.s3object import S3Object
-from src.com.hws.s3.models.grantee import Grantee
-from src.com.hws.s3.models.grantee import Group
-from src.com.hws.s3.models.grant import Grant
-from src.com.hws.s3.models.grant import Permission
-from src.com.hws.s3.models.acl import ACL
+
+from com.hws.s3.client.huawei_s3 import HuaweiS3
+from com.hws.s3.models.owner import Owner
+from com.hws.s3.models.s3object import S3Object
+from com.hws.s3.models.grantee import Grantee
+from com.hws.s3.models.grantee import Group
+from com.hws.s3.models.grant import Grant
+from com.hws.s3.models.grant import Permission
+from com.hws.s3.models.acl import ACL
 
 def demo():   
 
@@ -256,32 +257,13 @@ s3 = HuaweiS3(AK, SK, False)
 bucket_name = "ffh-bucket" #字符串转换成小写
 print "检查是否存在存储空间"
 print s3.check_bucket_exists(bucket_name), "\n"
-
-
-print "罗列存储空间："
-lmb = s3.list_buckets()
-bucket_list = lmb.entries
-
-print "the bucket list owner is:", s3.get_canonical_username(), "and ID is:", s3.get_canonical_userid()
-owner = Owner(lmb.owner.owner_id, lmb.owner.owner_name)
-
-print "the bucket list:"
-for bk in bucket_list:
-    print bk.name, "  ", bk.create_date, "\n"
-
+objkey="test.txt"
+#=========================================================================== # 检查对象是否存在
+ #==========================================================================
+print "检查对象是否存在"
+print s3.check_object_exist(bucket_name, objkey)
 
 #===========================================================================
-# 上传对象
+# 获取对象大小
 #===========================================================================
-print "采用put方法上传对象"
-file_path = r"D:\test.txt"  #待上传对象所在的路径
-objkey = os.path.split(file_path)[1]   #以上传文件的文件名作为对象名
-
-metadata = {}  #元数据用字典表示，其中的value必须使用列表类型
-metadata["blah"] = ["foo"]
-metadata["testmeta"] = ["hhee"]
-metadata["测试元数据"] = ["元数据"]
-
-s3b = S3Object(file_path, metadata)
-obj = s3.create_object(bucket_name, objkey, s3b)
-print obj.status, obj.reason, "\n"
+print "获取对象大小：", s3.get_object_filesize(bucket_name, objkey)

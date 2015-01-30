@@ -7,9 +7,9 @@ Created on 2012-9-29
 
 import xml.etree.ElementTree as ET
 
-from src.com.hws.s3.models.bucket import Bucket
-from src.com.hws.s3.models.owner import Owner
-from src.com.hws.s3.utils.utils import Utils
+from com.hws.s3.models.bucket import Bucket
+from com.hws.s3.models.owner import Owner
+from com.hws.s3.utils.utils import Utils
 
 
 #罗列存储空间方法返回对象，可解析返回的XML为S3存储空间
