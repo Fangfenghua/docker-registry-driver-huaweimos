@@ -1,0 +1,118 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head><title>Python: module com.hws.s3.response.list_objects_response</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="com.html"><font color="#ffffff">com</font></a>.<a href="com.hws.html"><font color="#ffffff">hws</font></a>.<a href="com.hws.s3.html"><font color="#ffffff">s3</font></a>.<a href="com.hws.s3.response.html"><font color="#ffffff">response</font></a>.list_objects_response</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///D:/eclipse/workspace/sdk/src/com/hws/s3/response/list_objects_response.py">d:\eclipse\workspace\sdk\src\com\hws\s3\response\list_objects_response.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;2012-10-10<br>
+&nbsp;<br>
+@author:&nbsp;s00228753</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="xml.etree.ElementTree.html">xml.etree.ElementTree</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="com.hws.s3.response.list_objects_response.html#ListObjectsResponse">ListObjectsResponse</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="com.hws.s3.response.list_objects_response.html#ListObjects">ListObjects</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ListObjects">class <strong>ListObjects</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#===============================================================================<br>
+#&nbsp;该类用于封装解析xml文件，生成创建<a href="#ListObjectsResponse">ListObjectsResponse</a>对象的参数<br>
+#===============================================================================<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ListObjects-__init__"><strong>__init__</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-convert_bool_value"><strong>convert_bool_value</strong></a>(self, string)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;布尔型字符串的转换&nbsp;&nbsp;将小写转换成python中的大写<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="ListObjects-find_item"><strong>find_item</strong></a>(self, root, itemname)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得相关的xml文件的节点<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="ListObjects-get_commonprefix_entries"><strong>get_commonprefix_entries</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_delimiter"><strong>get_delimiter</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_is_truncated"><strong>get_is_truncated</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_key_entries"><strong>get_key_entries</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_keyslist"><strong>get_keyslist</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_marker"><strong>get_marker</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_max_keys"><strong>get_max_keys</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_name"><strong>get_name</strong></a>(self)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获取创建对象时需要的一些参数<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="ListObjects-get_next_marker"><strong>get_next_marker</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-get_prefix"><strong>get_prefix</strong></a>(self)</dt></dl>
+
+<dl><dt><a name="ListObjects-load_xml_file"><strong>load_xml_file</strong></a>(self, xml)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;解析xml文件<br>
+#===========================================================================</tt></dd></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>NS</strong> = '{http://s3.amazonaws.com/doc/2006-03-01/}'</dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ListObjectsResponse">class <strong>ListObjectsResponse</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ListObjectsResponse-__init__"><strong>__init__</strong></a>(self, name, prefix, marker, delimiter, max_keys, is_truncated, next_marker, entries, keyslist, commonprefix_entries)</dt></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="ListObjectsResponse-list_objects_factory"><strong>list_objects_factory</strong></a>(xml)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;定义静态方法，用来解析xml，最后返回ListBucketResponse对象<br>
+#===========================================================================</tt></dd></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>

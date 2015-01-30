@@ -1,0 +1,246 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head><title>Python: module com.hws.s3.utils.request_format</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="com.html"><font color="#ffffff">com</font></a>.<a href="com.hws.html"><font color="#ffffff">hws</font></a>.<a href="com.hws.s3.html"><font color="#ffffff">s3</font></a>.<a href="com.hws.s3.utils.html"><font color="#ffffff">utils</font></a>.request_format</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///D:/eclipse/workspace/sdk/src/com/hws/s3/utils/request_format.py">d:\eclipse\workspace\sdk\src\com\hws\s3\utils\request_format.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;2012-9-26<br>
+&nbsp;<br>
+@author:&nbsp;s00228753</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="abc.html">abc</a><br>
+</td><td width="25%" valign=top><a href="com.hws.s3.utils.utils.html">com.hws.s3.utils.utils</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="__builtin__.html#object">__builtin__.object</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="com.hws.s3.utils.request_format.html#PathFormat">PathFormat</a>
+</font></dt><dt><font face="helvetica, arial"><a href="com.hws.s3.utils.request_format.html#SubdomainFormat">SubdomainFormat</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="com.hws.s3.utils.request_format.html#VanityFormat">VanityFormat</a>
+</font></dt></dl>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd>
+</dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="PathFormat">class <strong>PathFormat</strong></a>(<a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#==========================================================================<br>
+#&nbsp;请求方式类，路径请求方式。<br>
+#&nbsp;带对象和存储空间的请求为：s3.hwclouds.com/bucketname/key<br>
+#&nbsp;不带对象，带存储空间的请求为：s3.hwclouds.com/bucketname/<br>
+#&nbsp;不带存储空间和对象的的请求为：s3.hwlcouds.com/<br>
+#==========================================================================<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="com.hws.s3.utils.request_format.html#PathFormat">PathFormat</a></dd>
+<dd><a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="PathFormat-get_endpoint"><strong>get_endpoint</strong></a>(self, server, port, bucket)</dt></dl>
+
+<dl><dt><a name="PathFormat-get_full_url"><strong>get_full_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得绝对url&nbsp;&nbsp;完整路径<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="PathFormat-get_pathbase"><strong>get_pathbase</strong></a>(self, bucket, key)</dt></dl>
+
+<dl><dt><a name="PathFormat-get_server"><strong>get_server</strong></a>(self, server, bucket)</dt></dl>
+
+<dl><dt><a name="PathFormat-get_url"><strong>get_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得相对url<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="PathFormat-is_bucket_specified"><strong>is_bucket_specified</strong></a>(self, bucket)</dt></dl>
+
+<dl><dt><a name="PathFormat-supports_locatedbuckets"><strong>supports_locatedbuckets</strong></a>(self)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>:<br>
+<dl><dt><a name="PathFormat-get_pathformat"><strong>get_pathformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="PathFormat-get_subdomainformat"><strong>get_subdomainformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="PathFormat-get_vanityformat"><strong>get_vanityformat</strong></a>()</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="RequestFormat">class <strong>RequestFormat</strong></a>(<a href="__builtin__.html#object">__builtin__.object</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#===============================================================================<br>
+#&nbsp;请求格式，发送HTTP请求时，URL是路径模式或者子域名格式<br>
+#===============================================================================<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="RequestFormat-get_endpoint"><strong>get_endpoint</strong></a>(self, server, port, bucket)</dt></dl>
+
+<dl><dt><a name="RequestFormat-get_pathbase"><strong>get_pathbase</strong></a>(self, bucket, key)</dt></dl>
+
+<dl><dt><a name="RequestFormat-get_url"><strong>get_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt></dl>
+
+<dl><dt><a name="RequestFormat-supports_locatedbuckets"><strong>supports_locatedbuckets</strong></a>(self)</dt></dl>
+
+<hr>
+Static methods defined here:<br>
+<dl><dt><a name="RequestFormat-get_pathformat"><strong>get_pathformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="RequestFormat-get_subdomainformat"><strong>get_subdomainformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="RequestFormat-get_vanityformat"><strong>get_vanityformat</strong></a>()</dt></dl>
+
+<hr>
+Data descriptors defined here:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="SubdomainFormat">class <strong>SubdomainFormat</strong></a>(<a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>#===============================================================================<br>
+#&nbsp;请求方式类，子域请求方式。<br>
+#&nbsp;带对象和存储空间的请求为：bucketname.s3.hwclouds.com/key<br>
+#&nbsp;不带对象，带存储空间的请求为：bucketname.s3.hwclouds.com/<br>
+#&nbsp;不带存储空间和对象的的请求为：s3.hwlcouds.com/<br>
+#===============================================================================<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="com.hws.s3.utils.request_format.html#SubdomainFormat">SubdomainFormat</a></dd>
+<dd><a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="SubdomainFormat-get_endpoint"><strong>get_endpoint</strong></a>(self, server, port, bucket)</dt></dl>
+
+<dl><dt><a name="SubdomainFormat-get_full_url"><strong>get_full_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得绝对url&nbsp;完整路径<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="SubdomainFormat-get_pathbase"><strong>get_pathbase</strong></a>(self, bucket, key)</dt></dl>
+
+<dl><dt><a name="SubdomainFormat-get_server"><strong>get_server</strong></a>(self, server, bucket)</dt></dl>
+
+<dl><dt><a name="SubdomainFormat-get_url"><strong>get_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得相对url<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="SubdomainFormat-supports_locatedbuckets"><strong>supports_locatedbuckets</strong></a>(self)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>:<br>
+<dl><dt><a name="SubdomainFormat-get_pathformat"><strong>get_pathformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="SubdomainFormat-get_subdomainformat"><strong>get_subdomainformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="SubdomainFormat-get_vanityformat"><strong>get_vanityformat</strong></a>()</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="VanityFormat">class <strong>VanityFormat</strong></a>(<a href="com.hws.s3.utils.request_format.html#SubdomainFormat">SubdomainFormat</a>)</font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt>Method resolution order:</dt>
+<dd><a href="com.hws.s3.utils.request_format.html#VanityFormat">VanityFormat</a></dd>
+<dd><a href="com.hws.s3.utils.request_format.html#SubdomainFormat">SubdomainFormat</a></dd>
+<dd><a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a></dd>
+<dd><a href="__builtin__.html#object">__builtin__.object</a></dd>
+</dl>
+<hr>
+Methods defined here:<br>
+<dl><dt><a name="VanityFormat-get_server"><strong>get_server</strong></a>(self, server, bucket)</dt></dl>
+
+<hr>
+Methods inherited from <a href="com.hws.s3.utils.request_format.html#SubdomainFormat">SubdomainFormat</a>:<br>
+<dl><dt><a name="VanityFormat-get_endpoint"><strong>get_endpoint</strong></a>(self, server, port, bucket)</dt></dl>
+
+<dl><dt><a name="VanityFormat-get_full_url"><strong>get_full_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得绝对url&nbsp;完整路径<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="VanityFormat-get_pathbase"><strong>get_pathbase</strong></a>(self, bucket, key)</dt></dl>
+
+<dl><dt><a name="VanityFormat-get_url"><strong>get_url</strong></a>(self, is_secure, server, port, bucket, key, path_args)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获得相对url<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="VanityFormat-supports_locatedbuckets"><strong>supports_locatedbuckets</strong></a>(self)</dt></dl>
+
+<hr>
+Static methods inherited from <a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>:<br>
+<dl><dt><a name="VanityFormat-get_pathformat"><strong>get_pathformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="VanityFormat-get_subdomainformat"><strong>get_subdomainformat</strong></a>()</dt></dl>
+
+<dl><dt><a name="VanityFormat-get_vanityformat"><strong>get_vanityformat</strong></a>()</dt></dl>
+
+<hr>
+Data descriptors inherited from <a href="com.hws.s3.utils.request_format.html#RequestFormat">RequestFormat</a>:<br>
+<dl><dt><strong>__dict__</strong></dt>
+<dd><tt>dictionary&nbsp;for&nbsp;instance&nbsp;variables&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+<dl><dt><strong>__weakref__</strong></dt>
+<dd><tt>list&nbsp;of&nbsp;weak&nbsp;references&nbsp;to&nbsp;the&nbsp;object&nbsp;(if&nbsp;defined)</tt></dd>
+</dl>
+</td></tr></table></td></tr></table>
+</body></html>
