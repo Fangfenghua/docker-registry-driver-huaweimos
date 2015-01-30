@@ -1,0 +1,81 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head><title>Python: module com.hws.s3.utils.query_url_generator</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong><a href="com.html"><font color="#ffffff">com</font></a>.<a href="com.hws.html"><font color="#ffffff">hws</font></a>.<a href="com.hws.s3.html"><font color="#ffffff">s3</font></a>.<a href="com.hws.s3.utils.html"><font color="#ffffff">utils</font></a>.query_url_generator</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:///D:/eclipse/workspace/sdk/src/com/hws/s3/utils/query_url_generator.py">d:\eclipse\workspace\sdk\src\com\hws\s3\utils\query_url_generator.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;2012-10-12<br>
+&nbsp;<br>
+@author:&nbsp;s00228753</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="time.html">time</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="com.hws.s3.utils.query_url_generator.html#QueryURLGenerator">QueryURLGenerator</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="QueryURLGenerator">class <strong>QueryURLGenerator</strong></a></font></td></tr>
+    
+<tr><td bgcolor="#ffc8d8"><tt>&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="QueryURLGenerator-__init__"><strong>__init__</strong></a>(self, access_key_id, secret_access_key, is_secure<font color="#909090">=True</font>, server<font color="#909090">='s3.hwclouds.com'</font>, calling_format<font color="#909090">=&lt;com.hws.s3.utils.request_format.SubdomainFormat object&gt;</font>)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;__init__&nbsp;初始化<br>
+#&nbsp;@param&nbsp;access_key_id&nbsp;连接华为S3的AK<br>
+#&nbsp;@param&nbsp;secret_access_key&nbsp;鉴权使用的SK，可用于字符串的签名<br>
+#&nbsp;@param&nbsp;is_secure&nbsp;连接是否使用SSL<br>
+#&nbsp;@param&nbsp;server&nbsp;连接的服务器<br>
+#&nbsp;@param&nbsp;format&nbsp;连接请求的格式，子域名或者路径方式<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="QueryURLGenerator-generate_url"><strong>generate_url</strong></a>(self, method, bucket, key, path_args, headers)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;生成完整URL路径&nbsp;<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="QueryURLGenerator-get"><strong>get</strong></a>(self, bucket, key, headers)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;获取对象的URL<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="QueryURLGenerator-get_acl"><strong>get_acl</strong></a>(self, bucket, key, headers)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;临时鉴权获取对象的ACL<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="QueryURLGenerator-head_meta"><strong>head_meta</strong></a>(self, bucket, key, headers)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;使用head方法请求该URL获取对象元数据<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="QueryURLGenerator-make_bare_url"><strong>make_bare_url</strong></a>(self, bucket, key)</dt><dd><tt>#===========================================================================<br>
+#&nbsp;生成临时URL<br>
+#===========================================================================</tt></dd></dl>
+
+<dl><dt><a name="QueryURLGenerator-set_expires"><strong>set_expires</strong></a>(self, millis_since_epoch)</dt></dl>
+
+<dl><dt><a name="QueryURLGenerator-set_expiresin"><strong>set_expiresin</strong></a>(self, millis)</dt></dl>
+
+<hr>
+Data and other attributes defined here:<br>
+<dl><dt><strong>DEFAULT_EXPIRES_IN</strong> = 60000L</dl>
+
+</td></tr></table></td></tr></table>
+</body></html>
