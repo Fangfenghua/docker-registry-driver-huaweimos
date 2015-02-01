@@ -266,18 +266,10 @@ print "the bucket list:"
 for bk in bucket_list:
     print bk.name, "  ", bk.create_date, "\n"
 
-print "采用put方法上传对象"
-file_path = r"H:\docker\images\testxxxx.txt"  #待上传对象所在的路径
-objkey = os.path.split(file_path)[1]   #以上传文件的文件名作为对象名
-
-s3b = S3Object(file_path)
-obj = s3.create_object(bucket_name,  '\/c\/testxxxx.txt', s3b)
-print obj.status, obj.reason, "\n"
-
 
 
 print "获取对象内容："
 obj = s3.get_object(bucket_name, '\/c\/testxxxx.txt')
 if obj:
-    data = str(obj)
+    data = str(obj.object[0])
     print "xx",data  #从元组tuple中获取对象内容
