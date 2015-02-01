@@ -255,14 +255,29 @@ SK = "3/99tIlcis5HzmRUKo6ZmVd3klgAAAFLNWsYjKhD"
 s3 = HuaweiS3(AK, SK, False)
 bucket_name = "ffh-bucket" #字符串转换成小写
 print "检查是否存在存储空间"
-print s3.check_bucket_exists(bucket_name), "\n"
-objkey="test.txt"
-#=========================================================================== # 检查对象是否存在
- #==========================================================================
-print "检查对象是否存在"
-print s3.check_object_exist(bucket_name, objkey)
 
-#===========================================================================
-# 获取对象大小
-#===========================================================================
-print "获取对象大小：", s3.get_object_filesize(bucket_name, objkey)
+print "罗列存储空间："
+lmb = s3.list_buckets()
+bucket_list = lmb.entries
+
+print "the bucket list owner is:", s3.get_canonical_username(), "and ID is:", s3.get_canonical_userid()
+owner = Owner(lmb.owner.owner_id, lmb.owner.owner_name)
+print "the bucket list:"
+for bk in bucket_list:
+    print bk.name, "  ", bk.create_date, "\n"
+
+print "采用put方法上传对象"
+file_path = r"H:\docker\images\testxxxx.txt"  #待上传对象所在的路径
+objkey = os.path.split(file_path)[1]   #以上传文件的文件名作为对象名
+
+s3b = S3Object(file_path)
+obj = s3.create_object(bucket_name,  '\/c\/testxxxx.txt', s3b)
+print obj.status, obj.reason, "\n"
+
+
+
+print "获取对象内容："
+obj = s3.get_object(bucket_name, '\/c\/testxxxx.txt')
+if obj:
+    data = str(obj)
+    print "xx",data  #从元组tuple中获取对象内容
