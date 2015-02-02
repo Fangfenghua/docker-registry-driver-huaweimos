@@ -26,7 +26,7 @@ class Storage(driver.Base):
         self.server = config.mos_host or "s3-hd1.hwclouds.com"
         self.bucket = config.mos_bucket
         self.mos = self.make_connection()
-        self._root_path = config.storage_path or '/'
+        self._root_path = config.storage_path or '/registry/'
         if not self._root_path.endswith('/'):
             self._root_path += '/'
         logging.debug("AK=%s,SK=%s,secure=%s,bucker=%s,root_path=%s" %
@@ -56,9 +56,9 @@ class Storage(driver.Base):
 
     @lru.get
     def get_content(self, path):
-        path = self._init_path(path)
         if not self.exists(path):
             raise exceptions.FileNotFoundError("File not found %s" % path)
+        path = self._init_path(path)
         return self.get_store(path)
 
 
@@ -87,9 +87,9 @@ class Storage(driver.Base):
 
     def stream_read(self, path, bytes_range=None):
         """Method to stream read."""
-        path = self._init_path(path)
         if not self.exists(path):
             raise exceptions.FileNotFoundError("File not found %s" % path)
+        path = self._init_path(path)
         return self.get_store(path)
  
     def stream_write(self, path, fp):
@@ -118,6 +118,7 @@ class Storage(driver.Base):
     @lru.get
     def exists(self, path):
         """Method to test exists."""
+        path = self._init_path(path)
         logging.debug("Check exist os path=%s" % path)
         return self.mos.check_object_exist(self.bucket, path)
 
