@@ -87,11 +87,25 @@ class Storage(driver.Base):
 
     def stream_read(self, path, bytes_range=None):
         """Method to stream read."""
-        pass
-    
+        path = self._init_path(path)
+        if not self.exists(path):
+            raise exceptions.FileNotFoundError("File not found %s" % path)
+        return self.get_store(path)
+ 
     def stream_write(self, path, fp):
         """Method to stream write."""
-        pass
+        path = self._init_path(path)
+        try:
+            with open("/tmp/content", 'w') as f:
+                while True:
+                    buf = fp.read(self.buffer_size)
+                    if not buf: break
+                    f.write(buf)
+            s3b = S3Object("/tmp/content")
+            self.mos.create_object(self.bucket, path, s3b)
+        except:
+            raise
+        return path
 
     def list_directory(self, path=None):
         """Method to list directory."""
@@ -105,13 +119,7 @@ class Storage(driver.Base):
     def exists(self, path):
         """Method to test exists."""
         logging.debug("Check exist os path=%s" % path)
-        for i in range(1, 3):
-            try:
-                return self.mos.check_object_exist(self.bucket, path)
-            except Exception:
-                continue
-        logging.debug("Path=%s doesn't exist")
-        return False
+        return self.mos.check_object_exist(self.bucket, path)
 
     @lru.remove
     def remove(self, path):
