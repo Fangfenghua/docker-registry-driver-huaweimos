@@ -15,7 +15,8 @@ from docker_registry.core import driver
 from docker_registry.core import exceptions
 from docker_registry.core import lru
 
-logger = logging.getLogger(__name__)
+logging.basicConfig(filename = os.path.join(os.getcwd(), '/var/log/mos/log.txt'), level = logging.WARN, filemode = 'w', format = '%(asctime)s - %(levelname)s: %(message)s')  
+
 
 class Storage(driver.Base):
     def __init__(self, path=None, config=None):
@@ -28,7 +29,7 @@ class Storage(driver.Base):
         self._root_path = config.storage_path or '/'
         if not self._root_path.endswith('/'):
             self._root_path += '/'
-        logger.debug("AK=%s,SK=%s,secure=%s,bucker=%s,root_path=%s" %
+        logging.debug("AK=%s,SK=%s,secure=%s,bucker=%s,root_path=%s" %
                      (self.access_key_id, self.secret_access_key, self.is_secure,
                      self.server, self._root_path))
 
@@ -71,15 +72,18 @@ class Storage(driver.Base):
     def put_content(self, path, content):
         """Method to put content."""
         path = self._init_path(path)
+        logging.debug("path=%s,type(content)=%s"%(path,type(content)))
         self.put_store(path, content)
         return path
 
     def put_store(self, path, content, buff_size=None):
         try:
-            s3b = S3Object(content)
+            with open("/tmp/content","w+") as fp:
+                fp.write(content)
+            s3b = S3Object("/tmp/content")
             self.mos.create_object(self.bucket, path, s3b)
         except Exception:
-             raise IOError("Could not put content: %s" % path)
+             raise IOError("Could not put path: %s.content=%s" % (path, content))
 
     def stream_read(self, path, bytes_range=None):
         """Method to stream read."""
@@ -100,13 +104,13 @@ class Storage(driver.Base):
     @lru.get
     def exists(self, path):
         """Method to test exists."""
-        logger.debug("Check exist os path=%s" % path)
+        logging.debug("Check exist os path=%s" % path)
         for i in range(1, 3):
             try:
                 return self.mos.check_object_exist(self.bucket, path)
             except Exception:
                 continue
-        logger.debug("Path=%s doesn't exist")
+        logging.debug("Path=%s doesn't exist")
         return False
 
     @lru.remove
@@ -121,11 +125,11 @@ class Storage(driver.Base):
     def get_size(self, path):
         """Method to get the size."""
         path = self._init_path(path)
-        logger.debug("Get file size of %s" % path)
+        logging.debug("Get file size of %s" % path)
         try:
             file_size = self.mos.get_object_filesize(self.bucket, path)
             if file_size is not None:
-                logger.debug("Size of %s is %s" % (path, file_size))
+                logging.debug("Size of %s is %s" % (path, file_size))
                 return file_size
             else:
                 raise exceptions.FileNotFoundError("Unable to get size of %s" % path)
