@@ -8,26 +8,29 @@ see detail http://www.hwclouds.com/
 import os
 import logging
 
-from com.hws.s3.client.hwawei_s3 import HuaweiS3
+from com.hws.s3.client.huawei_s3 import HuaweiS3
 from com.hws.s3.models.s3object import S3Object
 
-from docker_registry.core import dirver
+from docker_registry.core import driver
 from docker_registry.core import exceptions
 from docker_registry.core import lru
 
 logger = logging.getLogger(__name__)
 
-class Storage(dirver.Base):
+class Storage(driver.Base):
     def __init__(self, path=None, config=None):
-        self.access_key_id = config.access_key_id
-        self.secret_access_key = config.secret_access_key
-        self.is_secure = config.is_secure
-        self.server = config.server
-        self.bucket = config.bucket
+        self.access_key_id = config.mos_accessid
+        self.secret_access_key = config.mos_accesskey
+        self.is_secure = config.secure or False
+        self.server = config.mos_host or "s3-hd1.hwclouds.com"
+        self.bucket = config.mos_bucket
         self.mos = self.make_connection()
         self._root_path = config.storage_path or '/'
         if not self._root_path.endswith('/'):
             self._root_path += '/'
+        logger.debug("AK=%s,SK=%s,secure=%s,bucker=%s,root_path=%s" %
+                     (self.access_key_id, self.secret_access_key, self.is_secure,
+                     self.server, self._root_path))
 
     def make_connection(self):
         if self.server:
