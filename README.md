@@ -1,6 +1,5 @@
 config
-=====================================================================================
-# docker-registry-driver-huaweimos
+=========
 mos: &mos
     <<: *common
     storage: mos
@@ -10,8 +9,8 @@ mos: &mos
     mos_accessid: _env:MOS_KEY
     mos_accesskey: _env:MOS_SECRET
     
-run
-======================================================================================
+options
+=========
 if you run in host:
 export SETTINGS_FLAVOR=mos
 export STORAGE_PATH=<your storage_path>
