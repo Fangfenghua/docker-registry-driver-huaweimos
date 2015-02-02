@@ -1,10 +1,10 @@
 config
 =========
 mos: &mos
-    <<: *common
-    storage: mos
-    storage_path: _env:STORAGE_PATH:/registry/
-    mos_host: _env:MOS_HOST
+    <<: *common \n
+    storage: mos \n
+    storage_path: _env:STORAGE_PATH:/registry/ \n
+    mos_host: _env:MOS_HOST \n
     mos_bucket: _env:MOS_BUCKET
     mos_accessid: _env:MOS_KEY
     mos_accesskey: _env:MOS_SECRET
