@@ -6,6 +6,7 @@ mos is Open Storage Service provided by huawei.com
 see detail http://www.hwclouds.com/
 """
 import os
+import logging
 
 from com.hws.s3.client.hwawei_s3 import HuaweiS3
 from com.hws.s3.models.s3object import S3Object
@@ -13,6 +14,8 @@ from com.hws.s3.models.s3object import S3Object
 from docker_registry.core import dirver
 from docker_registry.core import exceptions
 from docker_registry.core import lru
+
+logger = logging.getLogger(__name__)
 
 class Storage(dirver.Base):
     def __init__(self, path=None, config=None):
@@ -50,17 +53,16 @@ class Storage(dirver.Base):
     @lru.get
     def get_content(self, path):
         path = self._init_path(path)
-        obj = self.mos.get_object(self.bucket, path)
+        if not self.exists(path):
+            raise exceptions.FileNotFoundError("File not found %s" % path)
         return self.get_store(path)
 
 
-    def get_store(self, path):
+    def get_store(self, path, buffer_size=None):
         obj = self.mos.get_object(self.bucket, path)
         if obj:
             data = str(obj.object[0])
         return data
-
-
 
     @lru.set
     def put_content(self, path, content):
@@ -69,7 +71,7 @@ class Storage(dirver.Base):
         self.put_store(path, content)
         return path
 
-    def put_store(self, path, content):
+    def put_store(self, path, content, buff_size=None):
         try:
             s3b = S3Object(content)
             self.mos.create_object(self.bucket, path, s3b)
@@ -86,22 +88,44 @@ class Storage(dirver.Base):
 
     def list_directory(self, path=None):
         """Method to list directory."""
-        pass
+        path = self._init_path(path)
+        list_obj = self.mos.list_objects(self.bucket, path)
+        if list_obj:
+            for key in list_obj.keyslist:
+                 yield key
 
     @lru.get
     def exists(self, path):
         """Method to test exists."""
+        logger.debug("Check exist os path=%s" % path)
         for i in range(1, 3):
             try:
                 return self.mos.check_object_exist(self.bucket, path)
             except Exception:
                 continue
+        logger.debug("Path=%s doesn't exist")
+        return False
 
-
+    @lru.remove
     def remove(self, path):
         """Method to remove."""
-        delobject = self.mos.delete_object(self.bucket, path, None)
+        path = self._init_path(path)
+        try:
+            self.mos.delete_object(self.bucket, path, None)
+        except Exception:
+            raise(exceptions.ConnectionError("Communication with mos fail"))
 
     def get_size(self, path):
         """Method to get the size."""
-        self.mos.get_object_filesize(self.bucket, path)
+        path = self._init_path(path)
+        logger.debug("Get file size of %s" % path)
+        try:
+            file_size = self.mos.get_object_filesize(self.bucket, path)
+            if file_size is not None:
+                logger.debug("Size of %s is %s" % (path, file_size))
+                return file_size
+            else:
+                raise exceptions.FileNotFoundError("Unable to get size of %s" % path)
+        except Exception:
+            raise(exceptions.ConnectionError("Unable to get size of %s" % path))
+
