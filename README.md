@@ -12,16 +12,16 @@ config
     
 options
 =========
-if you run in host:
-export SETTINGS_FLAVOR=mos
-export STORAGE_PATH=<your storage_path>
-export MOS_HOST=<your mos server>
-export MOS_BUCKET=<your buker name>
-export MOS_KEY=<your mos AK>
-export MOS_SECRECT=<you mos SK>
+        *if you run in host*:
+                export SETTINGS_FLAVOR=mos
+                export STORAGE_PATH=<your storage_path>
+                export MOS_HOST=<your mos server>
+                export MOS_BUCKET=<your buker name>
+                export MOS_KEY=<your mos AK>
+                export MOS_SECRECT=<you mos SK>
 
-if you run in container:
-    * if you run docker-registry on your docker container, remmeber to specify these settings as cmd args:
+        if you run in container:
+        if you run docker-registry on your docker container, remmeber to specify these settings as cmd args:
         docker run \
          -e SETTINGS_FLAVOR=mos \
          -e STORAGE_PATH=/dockerregistry/ \
