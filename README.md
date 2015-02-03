@@ -8,6 +8,7 @@ mos: &mos
     mos_bucket: _env:MOS_BUCKET
     mos_accessid: _env:MOS_KEY
     mos_accesskey: _env:MOS_SECRET
+    search_backend: _env:SEARCH_BACKEND:sqlalchemy
     
 options
 =========
