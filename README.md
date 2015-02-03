@@ -1,14 +1,14 @@
 config
 =========
-mos: &mos
-    <<: *common
-    storage: mos
-    storage_path: _env:STORAGE_PATH:/registry/
-    mos_host: _env:MOS_HOST
-    mos_bucket: _env:MOS_BUCKET
-    mos_accessid: _env:MOS_KEY
-    mos_accesskey: _env:MOS_SECRET
-    search_backend: _env:SEARCH_BACKEND:sqlalchemy
+        mos: &mos
+            <<: *common 
+            storage: mos
+            storage_path: _env:STORAGE_PATH:/registry/
+            mos_host: _env:MOS_HOST
+            mos_bucket: _env:MOS_BUCKET
+            mos_accessid: _env:MOS_KEY
+            mos_accesskey: _env:MOS_SECRET
+            search_backend: _env:SEARCH_BACKEND:sqlalchemy
     
 options
 =========
