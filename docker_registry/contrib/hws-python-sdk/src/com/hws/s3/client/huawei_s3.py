@@ -197,14 +197,14 @@ class HuaweiS3(object):
     # 类型：字符串    ETag值，例：0f64741bf7cb1089e988e4585d0d3434，If-None-Match    如果对象的ETag和请求中指定的ETag不相同，则返回对象内容，
     # 否则的话返回304（not modified）类型：字符串 ETag值，例：0f64741bf7cb1089e988e4585d0d3434
     #===========================================================================
-    def get_object(self, bucket, key, headers = None): 
+    def get_object(self, bucket, key, headers = None):
         
         conn = self.make_request("GET", bucket, Utils.urlencode(key), None, headers, None)
         result = conn.getresponse()
 
         if int(result.status) < 400:
-            response = GetResponse.get_object_factory(result)         
-            return response
+            response = GetResponse.get_object_factory(result)
+            return response.object[0]
         
     #===========================================================================
     # 复制S3对象，并复制它的元数据，复制后的对象默认访问权限是为“private”

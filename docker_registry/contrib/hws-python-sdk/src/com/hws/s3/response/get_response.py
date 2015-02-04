@@ -19,7 +19,7 @@ class GetResponse(object):
     @staticmethod
     def get_object_factory(response):
                
-        body = GetResponse.get_data(response)
+        body = response
         metadata = GetResponse.parse_metadata(response)
         
         obj =(body, metadata)      
@@ -43,18 +43,12 @@ class GetResponse(object):
     #===========================================================================
     @staticmethod
     def get_data(response):
- 
-        data = []
-        CHUNKSIZE = 65563        
-        path = os.path.abspath(os.path.dirname(sys.argv[0]))
-        with open(path + "\\test.txt", "wb") as f:
-            while True:
-                chunk = response.read(CHUNKSIZE)
-                if not chunk:
-                    break
-                f.write(chunk)
-                data.append(chunk)             
-        
-        return ''.join(item for item in data)
+        CHUNKSIZE = 65563
+        while True:
+            chunk = response.read(CHUNKSIZE)
+            if not chunk: break
+            yield chunk
+
+
 
 

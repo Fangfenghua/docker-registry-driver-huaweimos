@@ -7,6 +7,7 @@ see detail http://www.hwclouds.com/
 """
 import os
 import logging
+import StringIO
 
 from com.hws.s3.client.huawei_s3 import HuaweiS3
 from com.hws.s3.models.s3object import S3Object
@@ -59,14 +60,23 @@ class Storage(driver.Base):
         if not self.exists(path):
             raise exceptions.FileNotFoundError("File not found %s" % path)
         path = self._init_path(path)
-        return self.get_store(path)
-
+        output = StringIO.StringIO()
+        try:
+            for buf in self.get_store(path):
+                output.write(buf)
+            return output.getvalue()
+        finally:
+            output.close()
 
     def get_store(self, path, buffer_size=None):
-        obj = self.mos.get_object(self.bucket, path)
-        if obj:
-            data = str(obj.object[0])
-        return data
+        response = self.mos.get_object(path)
+        try:
+            while True:
+                chunk = response.read(buffer_size)
+                if not chunk: break
+                yield chunk
+        except:
+            raise IOError("Could not get content: %s" % path)
 
     @lru.set
     def put_content(self, path, content):
@@ -90,7 +100,14 @@ class Storage(driver.Base):
         if not self.exists(path):
             raise exceptions.FileNotFoundError("File not found %s" % path)
         path = self._init_path(path)
-        return self.get_store(path)
+        res = self.get_store(path, self.buffer_size)
+        if res.status == 200:
+            block = res.read(self.buffer_size)
+            while len(block) > 0:
+                yield block
+                block = res.read(self.buffer_size)
+        else:
+            raise IOError('read %s failed, status: %s' % (path, res.status))
  
     def stream_write(self, path, fp):
         """Method to stream write."""
