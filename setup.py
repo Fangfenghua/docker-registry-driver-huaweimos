@@ -44,7 +44,14 @@ setuptools.setup(
     packages=['docker_registry',
               'docker_registry.drivers',
               'docker_registry.contrib',
-              'docker_registry.contrib.hws-python-sdk.src.com'],
+              'com',
+              'com.hws',
+              'com.hws.s3',
+              'com.hws.s3.client',
+              'com.hws.s3.models',
+              'com.hws.s3.response',
+              'com.hws.s3.utils'
+             ],
     package_data = {'docker_registry': ['../config/*']},
     install_requires=[
         "docker-registry-core>=2,<3"
