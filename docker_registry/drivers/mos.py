@@ -62,14 +62,14 @@ class Storage(driver.Base):
         path = self._init_path(path)
         output = StringIO.StringIO()
         try:
-            for buf in self.get_store(path):
+            for buf in self.get_store(path, self.buffer_size):
                 output.write(buf)
             return output.getvalue()
         finally:
             output.close()
 
-    def get_store(self, path, buffer_size=None):
-        response = self.mos.get_object(path)
+    def get_store(self, path, buffer_size):
+        response = self.mos.get_object(self.bucket, path)
         try:
             while True:
                 chunk = response.read(buffer_size)
@@ -100,7 +100,7 @@ class Storage(driver.Base):
         if not self.exists(path):
             raise exceptions.FileNotFoundError("File not found %s" % path)
         path = self._init_path(path)
-        res = self.get_store(path, self.buffer_size)
+        res = self.mos.get_object(self.bucket, path)
         if res.status == 200:
             block = res.read(self.buffer_size)
             while len(block) > 0:
