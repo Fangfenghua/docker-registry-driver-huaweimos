@@ -11,7 +11,7 @@ __author__ = 'TEC DEV TEAM'
 __copyright__ = 'Copyright 2015'
 __credits__ = []
 
-__version__ = '0.1.3'
+__version__ = '0.0.1'
 __maintainer__ = 'TEC DEV TEAM'
 __email__ = 'fangfenghua@huawei.com'
 
@@ -39,11 +39,9 @@ setuptools.setup(
                  'Topic :: Utilities'],
     platforms=['Independent'],
     namespace_packages=['docker_registry',
-                        'docker_registry.drivers',
-                        'docker_registry.contrib'],
+                        'docker_registry.drivers'],
     packages=['docker_registry',
               'docker_registry.drivers',
-              'docker_registry.contrib',
               'com',
               'com.hws',
               'com.hws.s3',
