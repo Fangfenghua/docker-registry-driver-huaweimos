@@ -8,6 +8,7 @@ see detail http://www.hwclouds.com/
 import os
 import logging
 import StringIO
+import traceback
 
 from com.hws.s3.client.huawei_s3 import HuaweiS3
 from com.hws.s3.models.s3object import S3Object
@@ -93,7 +94,7 @@ class Storage(driver.Base):
             s3b = S3Object("/tmp/content")
             self.mos.create_object(self.bucket, path, s3b)
         except Exception:
-             raise IOError("Could not put path: %s.content=%s" % (path, content))
+             raise IOError("Could not put path: %s.trace=%s" % (path, str(traceback.format_exc())))
 
     def stream_read(self, path, bytes_range=None):
         """Method to stream read."""
