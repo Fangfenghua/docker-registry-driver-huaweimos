@@ -108,6 +108,11 @@ class Storage(driver.Base):
                 block = res.read(self.buffer_size)
         else:
             raise IOError('read %s failed, status: %s' % (path, res.status))
+
+    def head_store(self, path):
+        path = self._init_path(path)
+        obj = self.mos.get_object_headers(self.bucketbucket_name, path)
+        return obj
  
     def stream_write(self, path, fp):
         """Method to stream write."""
