@@ -1,9 +1,16 @@
-#Docker registry huaweimos driver
-=
-This is a &docker-registry backend driver for Huawei Cloud Storage.
+#Docker registry huaweimos driver=
+This is a **docker-registry backend driver** for Huawei Cloud Storage.
 
 #Run in host
 ##Install
+Install pip
+apt-get -y install python-pip
+
+Install deps for backports.lzma (python2 requires it)
+apt-get -y install python-dev liblzma-dev libevent1-dev
+Install docker-registry
+pip install docker-registry
+
 ##Config
 ##Run
 #Run in container
