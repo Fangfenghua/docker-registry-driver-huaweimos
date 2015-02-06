@@ -70,7 +70,7 @@ Huawei mos flavor like:
      export MOS_KEY=<your mos AK>
      export MOS_SECRECT=<you mos SK>
 ####Run docker-registry
-docker-registry
+	docker-registry
 
 ----------
 ###Run in container
