@@ -11,7 +11,7 @@ apt-get -y install python-dev liblzma-dev libevent1-dev
 Install docker-registry
 pip install docker-registry
 
-##Config
+<i class="icon-cog">Config
 ##Run
 #Run in container
 ##Install
