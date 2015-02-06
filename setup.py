@@ -13,8 +13,7 @@ __credits__ = []
 
 __version__ = '0.0.1'
 __maintainer__ = 'TEC DEV TEAM'
-__email__ = 'fangfenghua@huawei.com'
-
+__email__ = '449171342@qq.com'
 __title__ = 'docker-registry-driver-huaweimos'
 __build__ = 0x000000
 
