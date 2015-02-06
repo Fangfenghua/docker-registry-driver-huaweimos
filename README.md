@@ -28,19 +28,19 @@ Installation
 
 
 ##### Install docker-registry
-git clone https://github.com/docker/docker-registry.git
-python setup.py  install
+	git clone https://github.com/docker/docker-registry.git
+	python setup.py  install
 
 #####Install  docker-registry-driver-huaweimos
-git clone https://github.com/ldpc/docker-registry-driver-huaweimos.git
-python setup.py install
+	git clone https://github.com/ldpc/docker-registry-driver-huaweimos.git
+	python setup.py install
 
 ####Install in registry  container
 
-docker pull regitry
-docker run -i -t -p 5000:5000  regitry /bin/bash
-git clone https://github.com/ldpc/docker-registry-driver-huaweimos.git
-python setup.py install
+	docker pull regitry
+	docker run -i -t -p 5000:5000  regitry /bin/bash
+	git clone https://github.com/ldpc/docker-registry-driver-huaweimos.git
+	python setup.py install
 
 
 ----------
