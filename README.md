@@ -1,3 +1,6 @@
+Docker registry sinastorage driver
+=
+This is a &docker-registry backend driver for Sina Cloud Storage.
 config
 =========
         mos: &mos
