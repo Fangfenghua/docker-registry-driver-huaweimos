@@ -1,6 +1,18 @@
-Docker registry sinastorage driver
+#Docker registry huaweimos driver
 =
-This is a &docker-registry backend driver for Sina Cloud Storage.
+This is a &docker-registry backend driver for Huawei Cloud Storage.
+
+#Run in host
+##Install
+##Config
+##Run
+#Run in container
+##Install
+##Config
+##Run
+
+
+
 config
 =========
         mos: &mos
