@@ -88,6 +88,5 @@ docker-registry
 #License
 	This is licensed under the Apache license. Most of the code here comes from docker-registry, under an Apache license as well.
 
-[TOC]
 
 
