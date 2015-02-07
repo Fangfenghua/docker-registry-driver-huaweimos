@@ -56,14 +56,14 @@ Huawei mos flavor like:
         mos_host: _env:MOS_HOST
         mos_bucket: _env:MOS_BUCKET
         mos_accessid: _env:MOS_KEY
-        mos_accesskey: _env:MOS_SECRET
+        mos_accesskey: _env:MOS_SECRECT
         search_backend: _env:SEARCH_BACKEND:sqlalchemy
 
 ----------
 ###Run in hosts
 -------------------
 ####Export  environment variable
-	 export SETTINGS_FLAVOR=mos
+     export SETTINGS_FLAVOR=mos
      export STORAGE_PATH=<your storage_path>
      export MOS_HOST=<your mos server>
      export MOS_BUCKET=<your buker name>
